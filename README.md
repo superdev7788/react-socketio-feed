@@ -102,7 +102,3 @@ Serve the `build` folder contents via any static HTTP server.
 ## License
 
 MIT License
-```
-
-
-***

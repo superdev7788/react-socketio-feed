@@ -1,46 +1,109 @@
-# Getting Started with Create React App
+## Frontend/README.md
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+```markdown
+# React Frontend for Real-time Feed App
 
-## Available Scripts
+This is the React + TypeScript frontend application that displays a real-time feed with infinite scroll using Socket.IO and REST API integration.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Responsive grid timeline showing feed items (messages with timestamps).
+- Infinite scroll loads older feed items from backend paginated API.
+- Real-time live feed updates via Socket.IO.
+- Written in TypeScript for type safety.
+- Modular components with clean CSS styling.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+---
 
-### `npm test`
+## Setup Instructions
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Prerequisites
 
-### `npm run build`
+- Node.js v14+
+- npm or yarn
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Installation
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Open terminal and navigate to the frontend directory
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
 
-### `npm run eject`
+cd frontend
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+2. Install dependencies
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+npm install
 
-## Learn More
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Running the App
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Start the development server:
+
+```
+
+npm start
+
+```
+
+This launches the app at http://localhost:3000.
+
+Make sure the backend server is running at `http://localhost:3001` for API and Socket.IO connection.
+
+---
+
+## Project Structure
+
+- `src/components/FeedGrid.tsx` — main feed component managing infinite scroll and Socket.IO updates.
+- `src/components/FeedItemCard.tsx` — renders individual feed cards.
+- `src/types.ts` — TypeScript interfaces like `FeedItem`.
+- `src/styles.css` — responsive and styled CSS for grid and cards.
+- `src/socketClient.ts` (optional) — Socket.IO client wrapper utility.
+- `src/App.tsx` — root component rendering `FeedGrid`.
+- `src/index.tsx` — React DOM render entry point.
+
+---
+
+## Configuration
+
+- The REST API base URL and Socket.IO URL can be configured in code if needed (usually `http://localhost:3001`).
+- Request page size is adjustable in `FeedGrid.tsx` (`PAGE_LIMIT` constant).
+- CSS styles are fully customizable via `styles.css`.
+
+---
+
+## Building for Production
+
+To create an optimized production build:
+
+```
+
+npm run build
+
+```
+
+Serve the `build` folder contents via any static HTTP server.
+
+---
+
+## Troubleshooting
+
+- If Socket.IO updates don't appear, check websocket connection URL and server CORS setup.
+- For CORS issues, ensure backend allows requests from `http://localhost:3000`.
+- Console errors usually show API or socket connection problems.
+
+---
+
+## License
+
+MIT License
+```
+
+
+***

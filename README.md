@@ -1,6 +1,5 @@
 ## Frontend/README.md
 
-```markdown
 # React Frontend for Real-time Feed App
 
 This is the React + TypeScript frontend application that displays a real-time feed with infinite scroll using Socket.IO and REST API integration.
